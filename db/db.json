@@ -166,6 +166,18 @@
       ],
       "status": "Solicitado",
       "id": 7
+    },
+    {
+      "nome": "Thiago",
+      "carne": "Picanha",
+      "pao": "Parmesão e Orégano",
+      "opcionais": [
+        "Bacon",
+        "Cheddar",
+        "Tomate"
+      ],
+      "status": "Solicitado",
+      "id": 8
     }
   ]
 }
