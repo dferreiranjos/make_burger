@@ -23,31 +23,14 @@
                     </ul>
                 </div>
                 <div>
-                    <select name="status" class="status">
+                    <select name="status" class="status" @change="updateBurger($event, burger.id)">
                         <option value="">Selecione</option>
-                        <option v-for="s in status" :key="s.id" value="s.tipo" :selected="burger.status == s.tipo">{{ s.tipo }}</option>
+                        <!-- :value="`${s.tipo} -->
+                        <option v-for="s in status" :key="s.id" :value="s.tipo" :selected="burger.status == s.tipo">{{ s.tipo }}</option>
                     </select>
-                    <button class="delete-btn">Cancelar</button>
+                    <button class="delete-btn" @click="deleteBurger(burger.id)">Cancelar</button>
                 </div>
             </div>
-            <!-- <div class="burger-table-row">
-                <div class="order-number">1</div>
-                <div>João</div>
-                <div>Pão de Trigo</div>
-                <div>Maminha</div>
-                <div>
-                    <ul>
-                        <li>Saleme</li>
-                        <li>Tomate</li>
-                    </ul>
-                </div>
-                <div>
-                    <select name="status" class="status">
-                        <option value="">Selecione</option>
-                    </select>
-                    <button class="delete-btn">Cancelar</button>
-                </div>
-            </div> -->
         </div>
     </div>
 </template>
@@ -84,6 +67,32 @@ export default {
             this.status = data
 
             // console.log(this.status)
+        },
+        async deleteBurger(id){
+            
+            const req = await fetch(`http://localhost:3000/burgers/${id}`, {
+                method: "DELETE"
+            })
+
+            const res = await req.json()
+
+
+            this.getPedidos()
+        },
+        async updateBurger(event, id){
+            const option = event.target.value
+
+            const dataJson = JSON.stringify({ status: option })
+
+            const req = await fetch(`http://localhost:3000/burgers/${id}`, {
+                method: "PATCH",
+                headers: {"Content-Type":"application/json"},
+                body: dataJson
+            })
+
+            const res = await req.json()
+
+            console.log(res)
         }
     },
     mounted(){
