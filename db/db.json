@@ -103,20 +103,8 @@
         "Cheddar",
         "Pepino"
       ],
-      "status": "Finalizado",
-      "id": 2
-    },
-    {
-      "nome": "Maria",
-      "carne": "Picanha",
-      "pao": "Parmesão e Orégano",
-      "opcionais": [
-        "Bacon",
-        "Salame",
-        "Tomate"
-      ],
       "status": "Solicitado",
-      "id": 5
+      "id": 2
     },
     {
       "nome": "Thiago",
@@ -139,7 +127,7 @@
         "Cheddar",
         "Tomate"
       ],
-      "status": "Em produção",
+      "status": "Solicitado",
       "id": 7
     }
   ]
